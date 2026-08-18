@@ -25,3 +25,36 @@ class Distance:
         if to_unit == "km":
             return Distance(self._magnitude * KM_PER_MI, "km")
         raise ValueError(f"Unsupported unit: {to_unit}")
+
+    def __add__(self, other):
+        if not isinstance(other, Distance):
+            return NotImplemented
+        other_in_self_unit = other.convert(self._unit)
+        return Distance(self._magnitude + other_in_self_unit.magnitude, self._unit)
+
+    def __sub__(self, other):
+        if not isinstance(other, Distance):
+            return NotImplemented
+        other_in_self_unit = other.convert(self._unit)
+        return Distance(self._magnitude - other_in_self_unit.magnitude, self._unit)
+
+    def __eq__(self, other):
+        if not isinstance(other, Distance):
+            return NotImplemented
+        return abs(self._magnitude - other.convert(self._unit).magnitude) < 1e-9
+
+    def __lt__(self, other):
+        if not isinstance(other, Distance):
+            return NotImplemented
+        return self._magnitude < other.convert(self._unit).magnitude
+
+    def __gt__(self, other):
+        if not isinstance(other, Distance):
+            return NotImplemented
+        return self._magnitude > other.convert(self._unit).magnitude
+
+    def __str__(self):
+        return f"{self._magnitude:.2f} {self._unit}"
+
+    def __repr__(self):
+        return f"Distance({self._magnitude!r}, {self._unit!r})"
