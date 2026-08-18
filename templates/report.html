@@ -1,11 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Report a Trail - Waypoint</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Report a Trail - Waypoint{% endblock %}
+{% block content %}
     <h1>Report a Trail</h1>
     <form method="post">
         {% csrf_token %}
@@ -23,5 +18,4 @@
         </p>
         <button type="submit">Submit Report</button>
     </form>
-</body>
-</html>
+{% endblock %}
