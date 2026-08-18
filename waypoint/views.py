@@ -12,3 +12,8 @@ def report(request):
         }
         return render(request, "thank_you.html", context)
     return render(request, "report.html")
+
+def search(request):
+    query = request.GET.get("q", "")
+    context = {"query": query}
+    return render(request, "search.html", context)

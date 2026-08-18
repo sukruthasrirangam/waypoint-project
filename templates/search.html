@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search - Waypoint</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Search Trails</h1>
+    <form method="get">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search trails...">
+        <button type="submit">Search</button>
+    </form>
+    {% if query %}
+        <p>You searched for: "{{ query }}"</p>
+    {% else %}
+        <p>Enter a search term above.</p>
+    {% endif %}
+</body>
+</html>
