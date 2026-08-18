@@ -31,3 +31,11 @@ Django 5.2 during Week 12 to fix an AttributeError in the Django admin caused by
 compatibility issue between Django 4.2 and Python 3.14. If running on an older Python
 version, Django 4.2 should still work fine — the upgrade was specifically to support
 Python 3.14.
+
+## Screenshots
+
+### Trail Catalog
+![Trail Catalog](screenshots/catalog.png)
+
+### Admin
+![Admin](screenshots/admin.png)
