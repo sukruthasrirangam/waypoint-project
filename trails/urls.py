@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.trail_catalog, name='trail_catalog'),
+    path('park/<int:park_id>/', views.trails_by_park, name='trails_by_park'),
 ]
