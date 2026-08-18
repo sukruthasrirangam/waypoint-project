@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report a Trail - Waypoint</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Report a Trail</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label>Name: <input type="text" name="name"></label>
+        </p>
+        <p>
+            <label>Email: <input type="email" name="email"></label>
+        </p>
+        <p>
+            <label>Trail: <input type="text" name="trail"></label>
+        </p>
+        <p>
+            <label>Note: <textarea name="note"></textarea></label>
+        </p>
+        <button type="submit">Submit Report</button>
+    </form>
+</body>
+</html>
